@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ICT Home PROS Payment Program</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="login-shell">
+      <section class="brand-panel" aria-label="ICT Home PROS Payment Program">
+        <img
+          class="brand-logo"
+          src="assets/ict-home-pro-logo.png"
+          alt="ICT Home Pros"
+        />
+        <div class="program-title">
+          <p class="version">Version 1.0</p>
+          <h1>ICT Home PROS Payment Program</h1>
+        </div>
+      </section>
+
+      <section class="login-panel" aria-labelledby="login-heading">
+        <div class="login-header">
+          <p class="eyebrow">Secure Access</p>
+          <h2 id="login-heading">Sign In</h2>
+        </div>
+
+        <form id="login-form" class="login-form" novalidate>
+          <label for="username">Username</label>
+          <input
+            id="username"
+            name="username"
+            type="text"
+            autocomplete="username"
+            required
+          />
+
+          <label for="password">Password</label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            autocomplete="current-password"
+            required
+          />
+
+          <p id="login-message" class="login-message" aria-live="polite"></p>
+
+          <button type="submit">Log In</button>
+        </form>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
