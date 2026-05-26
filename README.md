@@ -1,8 +1,8 @@
-# ICT Home PROS Payment Program
+# ICT Home Pros Payment Program
 
 Version 1.0
 
-This is the starting web app shell for the ICT Home PROS Payment Program. The first screen is a branded login page using the ICT Home Pros logo.
+This is the starting web app shell for the ICT Home Pros Payment Program. The first screen is a branded login page using the ICT Home Pros logo.
 
 ## Current Build
 
