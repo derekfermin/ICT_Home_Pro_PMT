@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <main class="login-shell">
+    <main id="login-shell" class="login-shell">
       <section class="brand-panel" aria-label="ICT Home PROS Payment Program">
         <img
           class="brand-logo"
@@ -49,6 +49,113 @@
 
           <button type="submit">Log In</button>
         </form>
+      </section>
+    </main>
+
+    <main id="app-shell" class="app-shell is-hidden" aria-label="Payment program workspace">
+      <aside class="sidebar">
+        <img class="sidebar-logo" src="assets/ict-home-pro-logo.png" alt="ICT Home Pros" />
+        <nav aria-label="Main workflow">
+          <button class="nav-item is-active" type="button">Agreements</button>
+          <button class="nav-item" type="button">Clients</button>
+          <button class="nav-item" type="button">Payments</button>
+          <button class="nav-item" type="button">Updates</button>
+          <button class="nav-item admin-only" type="button">Administration</button>
+        </nav>
+        <button id="logout-button" class="logout-button" type="button">Log Out</button>
+        <div class="version-card">
+          <span>Version</span>
+          <strong>1.0</strong>
+        </div>
+      </aside>
+
+      <section class="workspace">
+        <header class="workspace-header">
+          <div>
+            <p class="eyebrow">Agreement Builder</p>
+            <h2>Client Financing Packet</h2>
+          </div>
+          <div class="header-actions">
+            <button class="secondary-button" type="button">Save Draft</button>
+            <button type="button">Print Packet</button>
+          </div>
+        </header>
+
+        <section class="summary-grid" aria-label="Agreement summary">
+          <div class="summary-item">
+            <span>Client</span>
+            <strong>Sample Client Name</strong>
+          </div>
+          <div class="summary-item">
+            <span>Amount Financed</span>
+            <strong>$4,250.00</strong>
+          </div>
+          <div class="summary-item">
+            <span>Payment Plan</span>
+            <strong>12 monthly payments</strong>
+          </div>
+          <div class="summary-item">
+            <span>Storage Folder</span>
+            <strong>Client_Agreements</strong>
+          </div>
+        </section>
+
+        <section class="document-area">
+          <div class="document-tools" aria-label="Document controls">
+            <button class="tab-button is-active" type="button" data-document="agreement">Agreement</button>
+            <button class="tab-button" type="button" data-document="disclosure">Disclosure</button>
+          </div>
+
+          <article id="agreement-preview" class="document-preview">
+            <header class="document-header">
+              <p>ICT Home PROS</p>
+              <h3>Payment Program Financing Agreement</h3>
+              <span>Agreement - Page 1 of 1</span>
+            </header>
+            <dl class="document-fields">
+              <div><dt>Client Name</dt><dd>Sample Client Name</dd></div>
+              <div><dt>Agreement Number</dt><dd>ICT-0001</dd></div>
+              <div><dt>Date Prepared</dt><dd>May 26, 2026</dd></div>
+              <div><dt>Project Description</dt><dd>Sample home service project and materials.</dd></div>
+            </dl>
+            <p>
+              ICT Home PROS, as Creditor and Seller-Financier, agrees to carry the financed
+              balance for Client according to the payment terms listed in this packet.
+            </p>
+            <p>
+              Client agrees to make all scheduled payments when due and acknowledges that
+              this agreement will be paired with a separate required disclosure statement.
+            </p>
+            <div class="signature-row">
+              <span>ICT Home PROS Authorized Signature</span>
+              <span>Client Signature</span>
+            </div>
+          </article>
+
+          <article id="disclosure-preview" class="document-preview is-hidden">
+            <header class="document-header">
+              <p>ICT Home PROS</p>
+              <h3>Payment Program Disclosure Statement</h3>
+              <span>Disclosure Statement - Page 1 of 1</span>
+            </header>
+            <dl class="disclosure-table">
+              <div><dt>Amount Financed</dt><dd>$4,250.00</dd></div>
+              <div><dt>Finance Charge</dt><dd>$0.00 placeholder</dd></div>
+              <div><dt>Annual Percentage Rate</dt><dd>0.00% placeholder</dd></div>
+              <div><dt>Total of Payments</dt><dd>$4,250.00 placeholder</dd></div>
+              <div><dt>Payment Schedule</dt><dd>12 monthly payments of $354.17 placeholder</dd></div>
+              <div><dt>Late Charge</dt><dd>To be configured under Kansas and federal rules</dd></div>
+            </dl>
+            <p>
+              Required Kansas and federal consumer credit disclosures will be generated here
+              before this packet is used with a real client.
+            </p>
+            <div class="signature-row">
+              <span>Client Acknowledgment</span>
+              <span>Date</span>
+            </div>
+          </article>
+        </section>
       </section>
     </main>
 

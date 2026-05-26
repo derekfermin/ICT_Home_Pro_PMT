@@ -3,3 +3,6 @@ node_modules/
 dist/
 build/
 *.log
+
+Client_Agreements/*
+!Client_Agreements/README.md
