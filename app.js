@@ -189,6 +189,10 @@ function updateAgreementPreview() {
   setOutputs("paymentSchedule", paymentSchedule);
   setOutputs("firstPaymentDateDisplay", formatDate(data.firstPaymentDate));
   setOutputs("lateFee", data.lateFee || "Not configured");
+  setOutputs("securityInterest", data.securityInterest || "Not configured");
+  setOutputs("prepaymentPolicy", data.prepaymentPolicy || "Not configured");
+  setOutputs("paymentFrequencyDisplay", titleCaseFrequency(paymentFrequency));
+  setOutputs("totalSalePrice", dollars.format(financing.totalPrice));
 }
 
 function loadSavedDraft() {

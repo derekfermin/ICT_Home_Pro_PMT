@@ -46,6 +46,11 @@
           <button class="nav-item" type="button">Updates</button>
           <button class="nav-item admin-only" type="button">Administration</button>
         </nav>
+        <div class="sidebar-document-switcher" aria-label="Document controls">
+          <span>Documents</span>
+          <button class="tab-button is-active" type="button" data-document="agreement">Agreement</button>
+          <button class="tab-button" type="button" data-document="disclosure">Disclosure</button>
+        </div>
         <button id="logout-button" class="logout-button" type="button">Log Out</button>
         <div class="version-card">
           <span>Version</span>
@@ -142,75 +147,188 @@
 
               <label for="late-fee">Late Fee Terms</label>
               <input id="late-fee" name="lateFee" type="text" value="To be configured under Kansas and federal rules" />
+
+              <label for="security-interest">Security Interest</label>
+              <input id="security-interest" name="securityInterest" type="text" value="None unless separately documented and allowed by law" />
+
+              <label for="prepayment-policy">Prepayment Policy</label>
+              <input id="prepayment-policy" name="prepaymentPolicy" type="text" value="You may prepay the unpaid balance at any time without penalty" />
             </fieldset>
 
             <p id="draft-message" class="draft-message" aria-live="polite"></p>
           </form>
 
           <section class="document-area">
-            <div class="document-tools" aria-label="Document controls">
-              <button class="tab-button is-active" type="button" data-document="agreement">Agreement</button>
-              <button class="tab-button" type="button" data-document="disclosure">Disclosure</button>
-            </div>
-
-            <article id="agreement-preview" class="document-preview">
+            <article id="agreement-preview" class="document-preview legal-document">
               <header class="document-header">
                 <p>ICT Home Pros</p>
-                <h3>Payment Program Financing Agreement</h3>
+                <h3>Retail Installment Financing Agreement</h3>
                 <span>Agreement - Page 1 of 1</span>
               </header>
+
+              <section class="legal-notice">
+                <strong>Kansas Consumer Notice</strong>
+                <p>
+                  Do not sign this agreement before you read it. You are entitled to a copy of
+                  this agreement. You may prepay the unpaid balance at any time without penalty.
+                </p>
+              </section>
+
               <dl class="document-fields">
-                <div><dt>Client Name</dt><dd data-output="clientName">Sample Client Name</dd></div>
+                <div><dt>Creditor / Seller-Financier</dt><dd>ICT Home Pros</dd></div>
                 <div><dt>Agreement Number</dt><dd data-output="agreementNumber">ICT-0001</dd></div>
+                <div><dt>Buyer / Client</dt><dd data-output="clientName">Sample Client Name</dd></div>
                 <div><dt>Date Prepared</dt><dd data-output="datePreparedDisplay">May 29, 2026</dd></div>
-                <div><dt>Project Description</dt><dd data-output="projectDescription">Sample home service project and materials.</dd></div>
                 <div><dt>Client Address</dt><dd data-output="clientAddress">123 Sample Street, Wichita, KS 67202</dd></div>
                 <div><dt>Service Address</dt><dd data-output="serviceAddress">123 Sample Street, Wichita, KS 67202</dd></div>
               </dl>
-              <p>
-                ICT Home Pros, as Creditor and Seller-Financier, agrees to carry the financed
-                balance for Client according to the payment terms listed in this packet.
-              </p>
-              <p>
-                Client agrees to pay <strong data-output="amountFinanced">$4,250.00</strong>
-                through <strong data-output="paymentPlan">12 monthly payments</strong> of
-                <strong data-output="paymentAmount">$354.17</strong>, beginning on
-                <strong data-output="firstPaymentDateDisplay">June 29, 2026</strong>.
-              </p>
-              <p>
-                Client acknowledges that this agreement will be paired with a separate
-                disclosure statement before use with a real client.
-              </p>
+
+              <section class="legal-section">
+                <h4>1. Purchase and Financing</h4>
+                <p>
+                  Client has purchased or requested the goods, services, labor, materials, or work
+                  described below from ICT Home Pros. ICT Home Pros agrees to carry the unpaid
+                  balance under this retail installment financing agreement.
+                </p>
+                <p><strong>Project Description:</strong> <span data-output="projectDescription">Sample home service project and materials.</span></p>
+              </section>
+
+              <section class="legal-section">
+                <h4>2. Promise to Pay</h4>
+                <p>
+                  Client promises to pay ICT Home Pros the Amount Financed, Finance Charge, and
+                  Total of Payments shown in the separate Disclosure Statement that is provided
+                  with and incorporated into this Agreement.
+                </p>
+              </section>
+
+              <section class="legal-section compact-terms">
+                <h4>3. Payment Terms</h4>
+                <dl>
+                  <div><dt>Amount Financed</dt><dd data-output="amountFinanced">$4,250.00</dd></div>
+                  <div><dt>Payment Schedule</dt><dd data-output="paymentSchedule">12 monthly payments of $354.17</dd></div>
+                  <div><dt>First Payment Due</dt><dd data-output="firstPaymentDateDisplay">June 29, 2026</dd></div>
+                  <div><dt>Late Charge</dt><dd data-output="lateFee">To be configured under Kansas and federal rules</dd></div>
+                </dl>
+              </section>
+
+              <section class="legal-section">
+                <h4>4. Prepayment</h4>
+                <p data-output="prepaymentPolicy">You may prepay the unpaid balance at any time without penalty.</p>
+              </section>
+
+              <section class="legal-section">
+                <h4>5. Security Interest</h4>
+                <p data-output="securityInterest">None unless separately documented and allowed by law.</p>
+              </section>
+
+              <section class="legal-section">
+                <h4>6. Default and Remedies</h4>
+                <p>
+                  Client may be in default if Client fails to make a required payment when due,
+                  provides materially false information, or fails to comply with a material term of
+                  this Agreement. After any notice and right to cure required by applicable law,
+                  ICT Home Pros may exercise lawful remedies, including collection of the unpaid
+                  balance, lawful fees, court costs, and attorney fees if permitted by law or court order.
+                </p>
+              </section>
+
+              <section class="legal-section">
+                <h4>7. Agreement to Terms</h4>
+                <p>
+                  Client acknowledges receiving this Agreement and the separate Disclosure Statement
+                  before signing. This Agreement is intended to comply with applicable Kansas law,
+                  the Kansas Uniform Consumer Credit Code where applicable, the federal Truth in
+                  Lending Act, and Regulation Z.
+                </p>
+              </section>
+
               <div class="signature-row">
                 <span>ICT Home Pros Authorized Signature</span>
                 <span>Client Signature</span>
               </div>
             </article>
 
-            <article id="disclosure-preview" class="document-preview is-hidden">
+            <article id="disclosure-preview" class="document-preview legal-document is-hidden">
               <header class="document-header">
                 <p>ICT Home Pros</p>
-                <h3>Payment Program Disclosure Statement</h3>
+                <h3>Truth in Lending Disclosure Statement</h3>
                 <span>Disclosure Statement - Page 1 of 1</span>
               </header>
-              <dl class="disclosure-table">
-                <div><dt>Total Sale Price</dt><dd data-output="totalPrice">$5,000.00</dd></div>
-                <div><dt>Down Payment</dt><dd data-output="downPayment">$750.00</dd></div>
-                <div><dt>Amount Financed</dt><dd data-output="amountFinanced">$4,250.00</dd></div>
-                <div><dt>Finance Charge</dt><dd data-output="financeCharge">$0.00</dd></div>
-                <div><dt>Annual Percentage Rate</dt><dd data-output="aprDisplay">0.00%</dd></div>
-                <div><dt>Total of Payments</dt><dd data-output="totalOfPayments">$4,250.00</dd></div>
-                <div><dt>Payment Schedule</dt><dd data-output="paymentSchedule">12 monthly payments of $354.17</dd></div>
-                <div><dt>Late Charge</dt><dd data-output="lateFee">To be configured under Kansas and federal rules</dd></div>
-              </dl>
-              <p>
-                Required Kansas and federal consumer credit disclosures will be generated here
-                before this packet is used with a real client.
-              </p>
-              <p>
-                This preview is for layout and workflow planning only. Final legal and compliance
-                wording should be reviewed before production use.
-              </p>
+
+              <section class="tila-box" aria-label="Federal Truth in Lending disclosures">
+                <div>
+                  <dt>Annual Percentage Rate</dt>
+                  <dd data-output="aprDisplay">0.00%</dd>
+                  <p>The cost of your credit as a yearly rate.</p>
+                </div>
+                <div>
+                  <dt>Finance Charge</dt>
+                  <dd data-output="financeCharge">$0.00</dd>
+                  <p>The dollar amount the credit will cost you.</p>
+                </div>
+                <div>
+                  <dt>Amount Financed</dt>
+                  <dd data-output="amountFinanced">$4,250.00</dd>
+                  <p>The amount of credit provided to you or on your behalf.</p>
+                </div>
+                <div>
+                  <dt>Total of Payments</dt>
+                  <dd data-output="totalOfPayments">$4,250.00</dd>
+                  <p>The amount you will have paid after making all scheduled payments.</p>
+                </div>
+                <div>
+                  <dt>Total Sale Price</dt>
+                  <dd data-output="totalSalePrice">$5,000.00</dd>
+                  <p>The total cost of your purchase on credit, including your down payment.</p>
+                </div>
+              </section>
+
+              <section class="legal-section compact-terms">
+                <h4>Itemization of Amount Financed</h4>
+                <dl>
+                  <div><dt>Total Cash Price / Contract Price</dt><dd data-output="totalPrice">$5,000.00</dd></div>
+                  <div><dt>Down Payment</dt><dd data-output="downPayment">$750.00</dd></div>
+                  <div><dt>Amount Financed</dt><dd data-output="amountFinanced">$4,250.00</dd></div>
+                </dl>
+              </section>
+
+              <section class="legal-section compact-terms">
+                <h4>Payment Schedule</h4>
+                <dl>
+                  <div><dt>Number, Amount, and Timing of Payments</dt><dd data-output="paymentSchedule">12 monthly payments of $354.17</dd></div>
+                  <div><dt>First Payment Due Date</dt><dd data-output="firstPaymentDateDisplay">June 29, 2026</dd></div>
+                  <div><dt>Payment Frequency</dt><dd data-output="paymentFrequencyDisplay">Monthly</dd></div>
+                </dl>
+              </section>
+
+              <section class="legal-section compact-terms">
+                <h4>Additional Required Disclosures</h4>
+                <dl>
+                  <div><dt>Late Charge</dt><dd data-output="lateFee">To be configured under Kansas and federal rules</dd></div>
+                  <div><dt>Prepayment</dt><dd data-output="prepaymentPolicy">You may prepay the unpaid balance at any time without penalty.</dd></div>
+                  <div><dt>Security Interest</dt><dd data-output="securityInterest">None unless separately documented and allowed by law.</dd></div>
+                  <div><dt>Contract Reference</dt><dd>See the Financing Agreement for default, collection, and other contract terms.</dd></div>
+                </dl>
+              </section>
+
+              <section class="legal-notice">
+                <strong>Kansas Consumer Notice</strong>
+                <p>
+                  Do not sign this agreement before you read it. You are entitled to a copy of
+                  this agreement. You may prepay the unpaid balance at any time without penalty.
+                </p>
+              </section>
+
+              <section class="legal-section">
+                <h4>Acknowledgment</h4>
+                <p>
+                  Client acknowledges receiving this Disclosure Statement before signing the
+                  related Financing Agreement. Final wording and calculations must be verified for
+                  Kansas and federal compliance before production use.
+                </p>
+              </section>
+
               <div class="signature-row">
                 <span>Client Acknowledgment</span>
                 <span>Date</span>
