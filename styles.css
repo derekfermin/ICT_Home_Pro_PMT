@@ -444,3 +444,130 @@ dd {
     grid-template-columns: 1fr;
   }
 }
+
+.builder-grid {
+  display: grid;
+  grid-template-columns: minmax(320px, 390px) minmax(0, 1fr);
+  gap: 22px;
+  align-items: start;
+}
+
+.builder-form {
+  display: grid;
+  gap: 16px;
+}
+
+.builder-form fieldset {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--paper);
+}
+
+.builder-form legend {
+  padding: 0 8px;
+  font-weight: 900;
+}
+
+.builder-form input,
+.builder-form select,
+.builder-form textarea {
+  width: 100%;
+  min-height: 42px;
+  border: 1px solid #c9c9c5;
+  border-radius: 6px;
+  padding: 9px 11px;
+  color: var(--ink);
+  background: #ffffff;
+  font: inherit;
+}
+
+.builder-form textarea {
+  resize: vertical;
+  line-height: 1.35;
+}
+
+.builder-form input:focus,
+.builder-form select:focus,
+.builder-form textarea:focus {
+  border-color: var(--gold);
+  outline: 3px solid rgba(240, 201, 17, 0.24);
+}
+
+.draft-message {
+  min-height: 22px;
+  margin: 0;
+  color: #4f3b00;
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.document-fields {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.document-fields div:nth-child(4),
+.document-fields div:nth-child(5),
+.document-fields div:nth-child(6) {
+  grid-column: span 2;
+}
+
+@media (max-width: 1180px) {
+  .builder-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media print {
+  body {
+    background: #ffffff;
+  }
+
+  .sidebar,
+  .workspace-header,
+  .summary-grid,
+  .builder-form,
+  .document-tools {
+    display: none !important;
+  }
+
+  .app-shell,
+  .workspace,
+  .builder-grid,
+  .document-area {
+    display: block;
+    min-height: 0;
+    padding: 0;
+    background: #ffffff;
+  }
+
+  .document-preview {
+    display: block !important;
+    min-height: 0;
+    margin: 0 0 24px;
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+    page-break-after: always;
+  }
+
+  .document-preview.is-hidden {
+    display: block !important;
+  }
+}
+
+.builder-grid .document-area {
+  grid-template-columns: 1fr;
+}
+
+.builder-grid .document-tools {
+  position: static;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.builder-grid .document-preview {
+  width: 100%;
+}

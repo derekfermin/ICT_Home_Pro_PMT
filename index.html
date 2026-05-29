@@ -9,11 +9,7 @@
   <body>
     <main id="login-shell" class="login-shell">
       <section class="brand-panel" aria-label="ICT Home Pros Payment Program">
-        <img
-          class="brand-logo"
-          src="assets/ict-home-pro-logo.png"
-          alt="ICT Home Pros"
-        />
+        <img class="brand-logo" src="assets/ict-home-pro-logo.png" alt="ICT Home Pros" />
         <div class="program-title">
           <p class="version">Version 1.0</p>
           <h1>ICT Home Pros Payment Program</h1>
@@ -28,22 +24,10 @@
 
         <form id="login-form" class="login-form" novalidate>
           <label for="username">Username</label>
-          <input
-            id="username"
-            name="username"
-            type="text"
-            autocomplete="username"
-            required
-          />
+          <input id="username" name="username" type="text" autocomplete="username" required />
 
           <label for="password">Password</label>
-          <input
-            id="password"
-            name="password"
-            type="password"
-            autocomplete="current-password"
-            required
-          />
+          <input id="password" name="password" type="password" autocomplete="current-password" required />
 
           <p id="login-message" class="login-message" aria-live="polite"></p>
 
@@ -76,85 +60,163 @@
             <h2>Client Financing Packet</h2>
           </div>
           <div class="header-actions">
-            <button class="secondary-button" type="button">Save Draft</button>
-            <button type="button">Print Packet</button>
+            <button id="save-draft-button" class="secondary-button" type="button">Save Draft</button>
+            <button id="print-packet-button" type="button">Print Packet</button>
           </div>
         </header>
 
         <section class="summary-grid" aria-label="Agreement summary">
           <div class="summary-item">
             <span>Client</span>
-            <strong>Sample Client Name</strong>
+            <strong data-output="clientName">Sample Client Name</strong>
           </div>
           <div class="summary-item">
             <span>Amount Financed</span>
-            <strong>$4,250.00</strong>
+            <strong data-output="amountFinanced">$4,250.00</strong>
           </div>
           <div class="summary-item">
             <span>Payment Plan</span>
-            <strong>12 monthly payments</strong>
+            <strong data-output="paymentPlan">12 monthly payments</strong>
           </div>
           <div class="summary-item">
-            <span>Storage Folder</span>
-            <strong>Client_Agreements</strong>
+            <span>Estimated Payment</span>
+            <strong data-output="paymentAmount">$354.17</strong>
           </div>
         </section>
 
-        <section class="document-area">
-          <div class="document-tools" aria-label="Document controls">
-            <button class="tab-button is-active" type="button" data-document="agreement">Agreement</button>
-            <button class="tab-button" type="button" data-document="disclosure">Disclosure</button>
-          </div>
+        <section class="builder-grid">
+          <form id="agreement-builder-form" class="builder-form" aria-label="Agreement data entry">
+            <fieldset>
+              <legend>Client</legend>
+              <label for="client-name">Client Name</label>
+              <input id="client-name" name="clientName" type="text" value="Sample Client Name" />
 
-          <article id="agreement-preview" class="document-preview">
-            <header class="document-header">
-              <p>ICT Home Pros</p>
-              <h3>Payment Program Financing Agreement</h3>
-              <span>Agreement - Page 1 of 1</span>
-            </header>
-            <dl class="document-fields">
-              <div><dt>Client Name</dt><dd>Sample Client Name</dd></div>
-              <div><dt>Agreement Number</dt><dd>ICT-0001</dd></div>
-              <div><dt>Date Prepared</dt><dd>May 26, 2026</dd></div>
-              <div><dt>Project Description</dt><dd>Sample home service project and materials.</dd></div>
-            </dl>
-            <p>
-              ICT Home Pros, as Creditor and Seller-Financier, agrees to carry the financed
-              balance for Client according to the payment terms listed in this packet.
-            </p>
-            <p>
-              Client agrees to make all scheduled payments when due and acknowledges that
-              this agreement will be paired with a separate required disclosure statement.
-            </p>
-            <div class="signature-row">
-              <span>ICT Home Pros Authorized Signature</span>
-              <span>Client Signature</span>
-            </div>
-          </article>
+              <label for="client-address">Client Address</label>
+              <textarea id="client-address" name="clientAddress" rows="3">123 Sample Street&#10;Wichita, KS 67202</textarea>
 
-          <article id="disclosure-preview" class="document-preview is-hidden">
-            <header class="document-header">
-              <p>ICT Home Pros</p>
-              <h3>Payment Program Disclosure Statement</h3>
-              <span>Disclosure Statement - Page 1 of 1</span>
-            </header>
-            <dl class="disclosure-table">
-              <div><dt>Amount Financed</dt><dd>$4,250.00</dd></div>
-              <div><dt>Finance Charge</dt><dd>$0.00 placeholder</dd></div>
-              <div><dt>Annual Percentage Rate</dt><dd>0.00% placeholder</dd></div>
-              <div><dt>Total of Payments</dt><dd>$4,250.00 placeholder</dd></div>
-              <div><dt>Payment Schedule</dt><dd>12 monthly payments of $354.17 placeholder</dd></div>
-              <div><dt>Late Charge</dt><dd>To be configured under Kansas and federal rules</dd></div>
-            </dl>
-            <p>
-              Required Kansas and federal consumer credit disclosures will be generated here
-              before this packet is used with a real client.
-            </p>
-            <div class="signature-row">
-              <span>Client Acknowledgment</span>
-              <span>Date</span>
+              <label for="client-phone">Phone</label>
+              <input id="client-phone" name="clientPhone" type="tel" value="(316) 555-0100" />
+
+              <label for="client-email">Email</label>
+              <input id="client-email" name="clientEmail" type="email" value="client@example.com" />
+            </fieldset>
+
+            <fieldset>
+              <legend>Project</legend>
+              <label for="agreement-number">Agreement Number</label>
+              <input id="agreement-number" name="agreementNumber" type="text" value="ICT-0001" />
+
+              <label for="date-prepared">Date Prepared</label>
+              <input id="date-prepared" name="datePrepared" type="date" />
+
+              <label for="service-address">Service Address</label>
+              <textarea id="service-address" name="serviceAddress" rows="3">123 Sample Street&#10;Wichita, KS 67202</textarea>
+
+              <label for="project-description">Project Description</label>
+              <textarea id="project-description" name="projectDescription" rows="4">Sample home service project and materials.</textarea>
+            </fieldset>
+
+            <fieldset>
+              <legend>Financing</legend>
+              <label for="total-price">Total Contract Price</label>
+              <input id="total-price" name="totalPrice" type="number" min="0" step="0.01" value="5000" />
+
+              <label for="down-payment">Down Payment</label>
+              <input id="down-payment" name="downPayment" type="number" min="0" step="0.01" value="750" />
+
+              <label for="apr">APR / Interest Rate</label>
+              <input id="apr" name="apr" type="number" min="0" step="0.01" value="0" />
+
+              <label for="number-of-payments">Number of Payments</label>
+              <input id="number-of-payments" name="numberOfPayments" type="number" min="1" step="1" value="12" />
+
+              <label for="payment-frequency">Payment Frequency</label>
+              <select id="payment-frequency" name="paymentFrequency">
+                <option value="monthly" selected>Monthly</option>
+                <option value="biweekly">Biweekly</option>
+                <option value="weekly">Weekly</option>
+              </select>
+
+              <label for="first-payment-date">First Payment Due Date</label>
+              <input id="first-payment-date" name="firstPaymentDate" type="date" />
+
+              <label for="late-fee">Late Fee Terms</label>
+              <input id="late-fee" name="lateFee" type="text" value="To be configured under Kansas and federal rules" />
+            </fieldset>
+
+            <p id="draft-message" class="draft-message" aria-live="polite"></p>
+          </form>
+
+          <section class="document-area">
+            <div class="document-tools" aria-label="Document controls">
+              <button class="tab-button is-active" type="button" data-document="agreement">Agreement</button>
+              <button class="tab-button" type="button" data-document="disclosure">Disclosure</button>
             </div>
-          </article>
+
+            <article id="agreement-preview" class="document-preview">
+              <header class="document-header">
+                <p>ICT Home Pros</p>
+                <h3>Payment Program Financing Agreement</h3>
+                <span>Agreement - Page 1 of 1</span>
+              </header>
+              <dl class="document-fields">
+                <div><dt>Client Name</dt><dd data-output="clientName">Sample Client Name</dd></div>
+                <div><dt>Agreement Number</dt><dd data-output="agreementNumber">ICT-0001</dd></div>
+                <div><dt>Date Prepared</dt><dd data-output="datePreparedDisplay">May 29, 2026</dd></div>
+                <div><dt>Project Description</dt><dd data-output="projectDescription">Sample home service project and materials.</dd></div>
+                <div><dt>Client Address</dt><dd data-output="clientAddress">123 Sample Street, Wichita, KS 67202</dd></div>
+                <div><dt>Service Address</dt><dd data-output="serviceAddress">123 Sample Street, Wichita, KS 67202</dd></div>
+              </dl>
+              <p>
+                ICT Home Pros, as Creditor and Seller-Financier, agrees to carry the financed
+                balance for Client according to the payment terms listed in this packet.
+              </p>
+              <p>
+                Client agrees to pay <strong data-output="amountFinanced">$4,250.00</strong>
+                through <strong data-output="paymentPlan">12 monthly payments</strong> of
+                <strong data-output="paymentAmount">$354.17</strong>, beginning on
+                <strong data-output="firstPaymentDateDisplay">June 29, 2026</strong>.
+              </p>
+              <p>
+                Client acknowledges that this agreement will be paired with a separate
+                disclosure statement before use with a real client.
+              </p>
+              <div class="signature-row">
+                <span>ICT Home Pros Authorized Signature</span>
+                <span>Client Signature</span>
+              </div>
+            </article>
+
+            <article id="disclosure-preview" class="document-preview is-hidden">
+              <header class="document-header">
+                <p>ICT Home Pros</p>
+                <h3>Payment Program Disclosure Statement</h3>
+                <span>Disclosure Statement - Page 1 of 1</span>
+              </header>
+              <dl class="disclosure-table">
+                <div><dt>Total Sale Price</dt><dd data-output="totalPrice">$5,000.00</dd></div>
+                <div><dt>Down Payment</dt><dd data-output="downPayment">$750.00</dd></div>
+                <div><dt>Amount Financed</dt><dd data-output="amountFinanced">$4,250.00</dd></div>
+                <div><dt>Finance Charge</dt><dd data-output="financeCharge">$0.00</dd></div>
+                <div><dt>Annual Percentage Rate</dt><dd data-output="aprDisplay">0.00%</dd></div>
+                <div><dt>Total of Payments</dt><dd data-output="totalOfPayments">$4,250.00</dd></div>
+                <div><dt>Payment Schedule</dt><dd data-output="paymentSchedule">12 monthly payments of $354.17</dd></div>
+                <div><dt>Late Charge</dt><dd data-output="lateFee">To be configured under Kansas and federal rules</dd></div>
+              </dl>
+              <p>
+                Required Kansas and federal consumer credit disclosures will be generated here
+                before this packet is used with a real client.
+              </p>
+              <p>
+                This preview is for layout and workflow planning only. Final legal and compliance
+                wording should be reviewed before production use.
+              </p>
+              <div class="signature-row">
+                <span>Client Acknowledgment</span>
+                <span>Date</span>
+              </div>
+            </article>
+          </section>
         </section>
       </section>
     </main>
