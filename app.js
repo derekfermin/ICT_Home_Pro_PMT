@@ -125,6 +125,22 @@ function isoDate(date) {
   return date.toISOString().slice(0, 10);
 }
 
+function generateAgreementNumber() {
+  const now = new Date();
+  const datePart = now.toISOString().slice(2, 10).replace(/-/g, "");
+  const randomPart = Math.random().toString(36).slice(2, 6).toUpperCase();
+  return `ICT-${datePart}-${randomPart}`;
+}
+
+function ensureAgreementNumber() {
+  const agreementNumberField = builderForm.elements.namedItem("agreementNumber");
+  const currentValue = String(agreementNumberField.value || "").trim();
+
+  if (!currentValue || currentValue === "ICT-0001") {
+    agreementNumberField.value = generateAgreementNumber();
+  }
+}
+
 function calculateFinancing(data) {
   const totalPrice = Math.max(0, getNumber(data.totalPrice));
   const downPayment = Math.min(totalPrice, Math.max(0, getNumber(data.downPayment)));
@@ -228,4 +244,5 @@ function initializeDates() {
 
 loadSavedDraft();
 initializeDates();
+ensureAgreementNumber();
 updateAgreementPreview();

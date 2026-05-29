@@ -8,6 +8,7 @@ Current app version: 1.0
 2. Admin login shows the Administration button.
 3. Agreement and Disclosure buttons switch the document preview.
 4. Save Draft works in the browser. It saves the current form values to localStorage and restores them after reloading the app and logging back in.
+5. Agreement numbers are generated automatically in the format ICT-YYMMDD-XXXX instead of starting at ICT-0001.
 
 ## Important Notes
 
