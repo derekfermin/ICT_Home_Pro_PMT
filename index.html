@@ -85,7 +85,7 @@
           </div>
           <div class="summary-item">
             <span>Estimated Payment</span>
-            <strong data-output="paymentAmount">$354.17</strong>
+            <strong data-output="estimatedPayment">$354.17 monthly</strong>
           </div>
         </section>
 
@@ -146,7 +146,7 @@
               <input id="first-payment-date" name="firstPaymentDate" type="date" />
 
               <label for="late-fee">Late Fee Terms</label>
-              <input id="late-fee" name="lateFee" type="text" value="To be configured under Kansas and federal rules" />
+              <textarea id="late-fee" name="lateFee" rows="3">If a payment is not paid in full within 10 days after its due date, the late charge will be the lesser of 5% of the unpaid installment or $25, as permitted by Kansas law.</textarea>
 
               <label for="security-interest">Security Interest</label>
               <input id="security-interest" name="securityInterest" type="text" value="None unless separately documented and allowed by law" />
@@ -208,7 +208,7 @@
                   <div><dt>Amount Financed</dt><dd data-output="amountFinanced">$4,250.00</dd></div>
                   <div><dt>Payment Schedule</dt><dd data-output="paymentSchedule">12 monthly payments of $354.17</dd></div>
                   <div><dt>First Payment Due</dt><dd data-output="firstPaymentDateDisplay">June 29, 2026</dd></div>
-                  <div><dt>Late Charge</dt><dd data-output="lateFee">To be configured under Kansas and federal rules</dd></div>
+                  <div><dt>Late Charge</dt><dd data-output="lateFee">If a payment is not paid in full within 10 days after its due date, the late charge will be the lesser of 5% of the unpaid installment or $25, as permitted by Kansas law.</dd></div>
                 </dl>
               </section>
 
@@ -305,7 +305,7 @@
               <section class="legal-section compact-terms">
                 <h4>Additional Required Disclosures</h4>
                 <dl>
-                  <div><dt>Late Charge</dt><dd data-output="lateFee">To be configured under Kansas and federal rules</dd></div>
+                  <div><dt>Late Charge</dt><dd data-output="lateFee">If a payment is not paid in full within 10 days after its due date, the late charge will be the lesser of 5% of the unpaid installment or $25, as permitted by Kansas law.</dd></div>
                   <div><dt>Prepayment</dt><dd data-output="prepaymentPolicy">You may prepay the unpaid balance at any time without penalty.</dd></div>
                   <div><dt>Security Interest</dt><dd data-output="securityInterest">None unless separately documented and allowed by law.</dd></div>
                   <div><dt>Contract Reference</dt><dd>See the Financing Agreement for default, collection, and other contract terms.</dd></div>

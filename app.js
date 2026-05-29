@@ -25,6 +25,10 @@ const periodsPerYear = {
   monthly: 12,
 };
 
+const oldLateFeePlaceholder = "To be configured under Kansas and federal rules";
+const kansasLateFeeTerms =
+  "If a payment is not paid in full within 10 days after its due date, the late charge will be the lesser of 5% of the unpaid installment or $25, as permitted by Kansas law.";
+
 loginForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
@@ -186,7 +190,9 @@ function updateAgreementPreview() {
   const paymentFrequency = financing.paymentFrequency;
   const frequencyLabel = titleCaseFrequency(paymentFrequency).toLowerCase();
   const paymentPlan = `${financing.numberOfPayments} ${frequencyLabel} payments`;
-  const paymentSchedule = `${paymentPlan} of ${dollars.format(financing.paymentAmount)}`;
+  const paymentAmount = dollars.format(financing.paymentAmount);
+  const paymentSchedule = `${paymentPlan} of ${paymentAmount}`;
+  const estimatedPayment = `${paymentAmount} ${frequencyLabel}`;
 
   setOutputs("clientName", data.clientName || "Not provided");
   setOutputs("agreementNumber", data.agreementNumber || "Not assigned");
@@ -201,10 +207,11 @@ function updateAgreementPreview() {
   setOutputs("aprDisplay", `${financing.apr.toFixed(2)}%`);
   setOutputs("totalOfPayments", dollars.format(financing.totalOfPayments));
   setOutputs("paymentPlan", paymentPlan);
-  setOutputs("paymentAmount", dollars.format(financing.paymentAmount));
+  setOutputs("paymentAmount", paymentAmount);
+  setOutputs("estimatedPayment", estimatedPayment);
   setOutputs("paymentSchedule", paymentSchedule);
   setOutputs("firstPaymentDateDisplay", formatDate(data.firstPaymentDate));
-  setOutputs("lateFee", data.lateFee || "Not configured");
+  setOutputs("lateFee", data.lateFee || kansasLateFeeTerms);
   setOutputs("securityInterest", data.securityInterest || "Not configured");
   setOutputs("prepaymentPolicy", data.prepaymentPolicy || "Not configured");
   setOutputs("paymentFrequencyDisplay", titleCaseFrequency(paymentFrequency));
@@ -228,6 +235,15 @@ function loadSavedDraft() {
   });
 }
 
+function initializeLateFeeTerms() {
+  const lateFeeField = builderForm.elements.namedItem("lateFee");
+  const currentValue = String(lateFeeField.value || "").trim();
+
+  if (!currentValue || currentValue === oldLateFeePlaceholder) {
+    lateFeeField.value = kansasLateFeeTerms;
+  }
+}
+
 function initializeDates() {
   const preparedField = builderForm.elements.namedItem("datePrepared");
   const firstPaymentField = builderForm.elements.namedItem("firstPaymentDate");
@@ -245,4 +261,5 @@ function initializeDates() {
 loadSavedDraft();
 initializeDates();
 ensureAgreementNumber();
+initializeLateFeeTerms();
 updateAgreementPreview();
